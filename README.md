@@ -191,6 +191,7 @@ That said, you can also set environment variables for preferred providers.
 | `HF_TOKEN`                  | Hugging Face Inference                             |
 | `CEREBRAS_API_KEY`          | Cerebras                                           |
 | `OPENROUTER_API_KEY`        | OpenRouter                                         |
+| `IONET_API_KEY`             | io.net                                             |
 | `GROQ_API_KEY`              | Groq                                               |
 | `VERTEXAI_PROJECT`          | Google Cloud VertexAI (Gemini)                     |
 | `VERTEXAI_LOCATION`         | Google Cloud VertexAI (Gemini)                     |
@@ -422,6 +423,25 @@ cd "$env:LOCALAPPDATA\crush\skills"
 git clone https://github.com/anthropics/skills.git _temp
 mv _temp/skills/* . ; rm -r -force _temp
 ```
+
+### Desktop notifications
+
+Crush sends desktop notifications when a tool call requires permission and when
+the agent finishes its turn. They're only sent when the terminal window isn't
+focused _and_ your terminal supports reporting the focus state.
+
+```jsonc
+{
+  "$schema": "https://charm.land/crush.json",
+  "options": {
+    "disable_notifications": false // default
+  }
+}
+```
+
+To disable desktop notifications, set `disable_notifications` to `true` in your
+configuration. On macOS, notifications currently lack icons due to platform
+limitations.
 
 ### Initialization
 
